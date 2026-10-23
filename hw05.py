@@ -61,7 +61,7 @@ def check_pattern(letter, digit, lst):
 #  The function main is INCOMPLETE, you must finish it
 # before you submit
 def main ():
-    """ gets a letter-num pair and searches inside a list for matches"""
+    """ gets a letter-digit pair and checks a list for strings where the letter appears before the digit"""
 
     # The list inside of which we will search the user pair (DO NOT MODIFY)
     # -------------------------------------------------
