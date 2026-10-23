@@ -86,7 +86,7 @@ def main ():
 
         again = input("Try Again? (y/n): ") # ask whether the user wants to try another pattern
         if again != "y":
-            break
+            break 
 
     # -------------------------------------------------
     # No need to modify anything Below this line
