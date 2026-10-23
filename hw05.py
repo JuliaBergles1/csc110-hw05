@@ -1,24 +1,61 @@
 """
-Name: (put your name here)
+Name: Julia Bergles
 Peers: (add any collaborators)
 References: (anything you checked to solve this)
 """
 
 def get_letter():
-    """ Add your own Docstring """
+    """ Ask for a valid uppercase letter: A, B, or C """
     # remove the default return and add your code
-    return ""
+    while True:
+        letter = input("Give an single uppercase letter: ") # ask the user to enter a letter
+        if len(letter) != 1: # check that the input contains exactly one character
+            print("Error: it needs to be a single character.")
+            continue
+        if letter != "A" and letter != "B" and letter != "C": # make sure the letter is one of the allowed options
+            print("Error: You provided the wrong character.")
+            continue
+        return letter  # return the valid letter
+        
+        
+        
+        
 
 def get_digit():
-    """ Add your own Docstring """
-    # remove the default return and add your code
-    return 0
+    """ Ask for a valid digit: 1, 2, or 3 """
+    while True: # ask the user to enter a digit
+        digit = input("Give an single number character: ")
+        if not digit.isdigit(): # check that the input contains only digits
+            print("Error: your input should be only digits.")
+            continue
+        if digit != "1" and digit != "2" and digit != "3":  # make sure the digit is 1, 2, or 3
+            print("Error: a single digit needs to be in [1,3].")
+            continue
+        return digit # return the valid digit
+
 
 
 def check_pattern(letter, digit, lst):
-    """ Add your own Docstring """
-    # remove the default pass and add your code
-    pass
+    """ Print each word containing the letter before the digit """
+    print("Strings with the pattern:")
+    for word in lst: # check each word in the list
+        found = False
+        #find a position containing the requested letter
+        for i in range(len(word)):
+            if word[i] == letter:
+                #only check positions after the letter
+                for j in range(i + 1, len(word)):
+                    if word[j] == digit:
+                        found = True  # stop searching once the pattern is found
+                        break
+            if found:
+                break
+
+        # print each matching word only once
+        if found:
+            print(word, end=" ")
+
+    print()
 
 
 #  The function main is INCOMPLETE, you must finish it
@@ -41,8 +78,15 @@ def main ():
     #          IF the user replies with anything else, the loop ends
     # ADD YOUR CODE UNDER THIS LINE
     # -------------------------------------------------
+    while True: # repeat the program until the user chooses to stop
+        letter = get_letter() 
+        digit = get_digit()
 
-    # Your code Here
+        check_pattern(letter, digit, st_list) # find and print all words matching the pattern
+
+        again = input("Try Again? (y/n): ") # ask whether the user wants to try another pattern
+        if again != "y":
+            break
 
     # -------------------------------------------------
     # No need to modify anything Below this line
